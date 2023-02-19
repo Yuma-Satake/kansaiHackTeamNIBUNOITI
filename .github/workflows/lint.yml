@@ -11,12 +11,12 @@ name: Lint
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: ["develop"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "develop" ]
+    branches: ["develop"]
   schedule:
-    - cron: '23 3 * * 6'
+    - cron: "23 3 * * 6"
 
 jobs:
   eslint:
@@ -36,11 +36,9 @@ jobs:
           npm install @microsoft/eslint-formatter-sarif@2.1.7
 
       - name: Run ESLint
-        run: npx eslint .
-          --config .eslintrc.json
-          --ext .js,.jsx,.ts,.tsx
-          --format @microsoft/eslint-formatter-sarif
-          --output-file eslint-results.sarif
+        run:
+          npx eslint . --config .eslintrc.json --ext .js,.jsx,.ts,.tsx --format
+          @microsoft/eslint-formatter-sarif --output-file eslint-results.sarif
         continue-on-error: true
 
       - name: Upload analysis results to GitHub
@@ -50,7 +48,6 @@ jobs:
           wait-for-processing: true
 
   rome:
-
     name: Run rome scanning
     runs-on: ubuntu-latest
     permissions:
