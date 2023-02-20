@@ -12,7 +12,22 @@ MaCha（まっちゃ）
 
 # 技術スタック
 
--
+## フロントエンド
+
+- React
+- MUI
+- GmailAPI
+
+## バックエンド
+
+- Firebaes ( Hosting / Authentication / Functionse / Firestore )
+- Nodemailer
+
+## ツール
+
+- Github
+- GithubActions ( Eslint / Rome )
+- Figma
 
 # 開発メンバー
 
