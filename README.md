@@ -15,6 +15,7 @@ MaCha（まっちゃ）
 ## フロントエンド
 
 - React
+- Vite
 - MUI
 - GmailAPI
 
