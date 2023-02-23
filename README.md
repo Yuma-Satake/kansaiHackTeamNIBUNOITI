@@ -8,7 +8,8 @@ MaCha（まっちゃ）
 
 # ドキュメント
 
--優勝したくね?
+- 優勝したくね?
+- [各種お調べリンク](https://github.com/Yuma-Satake/kansaiHackTeamNIBUNOITI/wiki)
 
 # 技術スタック
 
