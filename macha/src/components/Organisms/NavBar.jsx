@@ -11,7 +11,7 @@ const NavBar = () => {
         <Typography noWrap={true}>チャット</Typography>
       </Button>
       <Button variant='contained'>
-        ユ<Typography noWrap={true}>ユーザ</Typography>
+        <Typography noWrap={true}>ユーザ</Typography>
       </Button>
     </Stack>
   );
