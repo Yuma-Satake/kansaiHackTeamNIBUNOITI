@@ -11,7 +11,9 @@ const BaseLayout = (props) => {
         <NavBar />
       </Box>
       <Stack direction='column' sx={{ pl: 2, bgcolor: "primary.main" }}>
-        <Search />
+        <Stack direction='row'>
+          <Search />
+        </Stack>
         {children}
       </Stack>
     </Stack>
