@@ -22,6 +22,6 @@ const getMails = ()=>{
     fetchData();
   },[]);
 
-}
+};
 
 export default getMails
