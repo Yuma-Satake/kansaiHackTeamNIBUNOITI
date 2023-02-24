@@ -7,30 +7,35 @@ import Stack from "@mui/material/Stack";
 
 const getMails = [
   {
+    id: 1,
     name: "みず",
     title: "環境構築できました",
     description:
       "株式会社〇〇\n△△部◇◇◇◇様初めてご連絡いたします。■■■の開発、生産をしております。株式会社●●営業部の◆◆と申します。\nこのたび、ぜひ弊社の製品をサンプルとして\n◇◇様にお使いいただけないかと思いご連絡いたしました。"
   },
   {
+    id: 2,
     name: "うっちー",
     title: "遅刻してすみません",
     description:
       "株式会社〇〇\n△△部◇◇◇◇様初めてご連絡いたします。■■■の開発、生産をしております。株式会社●●営業部の◆◆と申します。\nこのたび、ぜひ弊社の製品をサンプルとして\n◇◇様にお使いいただけないかと思いご連絡いたしました。"
   },
   {
+    id: 3,
     name: "みず",
     title: "環境構築できました",
     description:
       "株式会社〇〇\n△△部◇◇◇◇様初めてご連絡いたします。■■■の開発、生産をしております。株式会社●●営業部の◆◆と申します。\nこのたび、ぜひ弊社の製品をサンプルとして\n◇◇様にお使いいただけないかと思いご連絡いたしました。"
   },
   {
+    id: 4,
     name: "うっちー",
     title: "遅刻してすみません",
     description:
       "株式会社〇〇\n△△部◇◇◇◇様初めてご連絡いたします。■■■の開発、生産をしております。株式会社●●営業部の◆◆と申します。\nこのたび、ぜひ弊社の製品をサンプルとして\n◇◇様にお使いいただけないかと思いご連絡いたしました。"
   },
   {
+    id: 5,
     name: "みず",
     title: "環境構築できました",
     description:
@@ -45,10 +50,11 @@ const MailList = () => {
     <Box sx={{ m: 1 }}>
       {mails.map((mail) => (
         <Stack
+          key={mails.id}
           sx={{ mb: 3, border: 1, borderRadius: 2, borderColor: "#1f1f1f", py: 3, pl: 3 }}
           direction='row'
         >
-          <Grid xs={11} container>
+          <Grid item xs={11} container>
             <Grid item xs={3} sx={{ mr: 1 }}>
               <Box sx={{ mb: 1 }}>
                 <Typography variant='h5' sx={{ fontWeight: "bold" }}>
