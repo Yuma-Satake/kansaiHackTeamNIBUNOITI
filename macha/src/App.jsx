@@ -11,7 +11,6 @@ function App() {
       <ThemeProvider theme={mainTheme}>
         <PageRouter />
       </ThemeProvider>
-      <PostMailpreTest />
     </>
   );
 }
