@@ -8,7 +8,7 @@ MaCha（まっちゃ）
 
 # ドキュメント
 
-- 優勝したくね?
+- [Functions 関数一覧](./doc/Functions.md)
 - [各種お調べリンク](https://github.com/Yuma-Satake/kansaiHackTeamNIBUNOITI/wiki)
 
 # 技術スタック
