@@ -1,38 +1,30 @@
-import React from 'react';
-import { signInWithPopup } from "firebase/auth";
+import Button from "@mui/material/Button";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../util/firebase";
-import { useNavigate } from "react-router-dom";
-import { GoogleAuthProvider } from "firebase/auth";
 
-const Login = ({setIsAuth}) => {
-  const navigate = useNavigate();
-  const loginInWithGoogle = () => {
-    //Googleでログイン
-    signInWithPopup(auth, provider).then((result) => {
-      
-      // This gives you a Facebook Access Token.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-
-      localStorage.setItem("isAuth", True);
-      localStorage.setItem("uid", uid);
-      localStorage.setItem("credential", credential);
-      localStorage.setItem("token", token);
-
-      console.log("test");
-
-      setIsAuth(true);
-      navigate("../components/Pages/MailsPage");
-    });
+const Login2 = () => {
+  const SendLogin = async () => {
+    provider.addScope("https://mail.google.com/");
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        localStorage.setItem("token", `${token}`);
+        localStorage.setItem("uid", `${user.uid}`);
+        localStorage.setItem("displayName", `${user.displayName}`);
+        localStorage.setItem("email", `${user.email}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
-    <div>
-      <p>ログイン</p>
-      <button onClick={loginInWithGoogle}>Googleでログイン</button>
-    </div>
+    <Button variant='contained' color='primary' onClick={SendLogin}>
+      Googleログイン
+    </Button>
   );
 };
 
-export default Login;
+export default Login2;

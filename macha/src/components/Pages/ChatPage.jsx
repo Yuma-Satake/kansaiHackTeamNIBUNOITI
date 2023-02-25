@@ -1,15 +1,6 @@
 import BaseLayout from "../Templates/BaseLayout";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import {
-  Box,
-  Button,
-  Container,
-  Drawer,
-  IconButton,
-  Modal,
-  TextField,
-  Typography
-} from "@mui/material";
+import { Button, IconButton, TextField, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useState } from "react";
 import ChatItem from "../Organisms/ChatItem";
