@@ -95,7 +95,7 @@ export const MailList = () => {
   }, []);
 
   return (
-    <Stack justifyContent='center' sx={{ m: 1 }}>
+    <Box sx={{ m: 1 }}>
       {numList.lenght !== 0 ? (
         numList.map((num) => {
           return (
@@ -133,7 +133,7 @@ export const MailList = () => {
       ) : (
         <p>error</p>
       )}
-    </Stack>
+    </Box>
   );
 };
 
