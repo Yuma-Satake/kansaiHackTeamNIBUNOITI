@@ -8,7 +8,7 @@ on:
       - develop
 defaults:
   run:
-    working-directory: ./macha
+    working-directory: ./
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
