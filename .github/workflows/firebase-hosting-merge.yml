@@ -6,6 +6,9 @@ on:
   push:
     branches:
       - develop
+defaults:
+  run:
+    working-directory: ./macha
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
