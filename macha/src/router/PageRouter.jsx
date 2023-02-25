@@ -31,10 +31,6 @@ const PageRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path={"/"} element={true ? <MailsPage /> : <Login />} />
-        <Route path={"/MailsPage"} element={true ? <MailsPage /> : <Login />} />
-        <Route path={"/ChatPage"} element={true ? <ChatPage /> : <Login />} />
-        <Route path={"/ThredPage"} element={true ? <ThredPage /> : <Login />} /> */}
         <Route path={"/"} element={isLogin ? <MailsPage /> : <Login />} />
         <Route path={"/MailsPage"} element={isLogin ? <MailsPage /> : <Login />} />
         <Route path={"/ChatPage"} element={isLogin ? <ChatPage /> : <Login />} />
