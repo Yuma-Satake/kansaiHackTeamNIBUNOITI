@@ -2,11 +2,9 @@ import { signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { auth, provider } from "../util/firebase";
 
 const Login = () => {
-  const user = auth.currentUser;
-
   const loginInWithGoogle = async () => {
-    await signInWithRedirect(auth, provider);
-    await getRedirectResult(auth);
+    const newProvider = provider.addScope("https://mail.google.com/");
+    await signInWithRedirect(auth, newProvider);
   };
 
   return (
