@@ -1,6 +1,6 @@
 import { Axios } from "axios";
 
-const axios = new Axios({
+export const axios = new Axios({
   baseURL: "http://localhost:5001",
   headers: {
     "Content-Type": "application/json"
@@ -13,4 +13,12 @@ const axios = new Axios({
   ]
 });
 
-export default axios;
+export const GmailAxios = new Axios({
+  baseURL: "https://gmail.googleapis.com",
+  responseType: "json",
+  transformResponse: [
+    function transformResponse(data, headers) {
+      return JSON.parse(data);
+    }
+  ]
+});
