@@ -1,20 +1,120 @@
 import { signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { auth, provider } from "../util/firebase";
+import * as React from 'react'
+import Box from '@mui/material/Box';
+import { Toolbar, Typography } from "@mui/material";
+import CssBaseline from '@mui/material/CssBaseline';
+import Button from '@mui/material/Button';
 
-const Login = () => {
-  const user = auth.currentUser;
 
-  const loginInWithGoogle = async () => {
-    await signInWithRedirect(auth, provider);
-    await getRedirectResult(auth);
-  };
+function Login() {
+    const user = auth.currentUser;
+  
+    const loginInWithGoogle = async () => {
+      await signInWithRedirect(auth, provider);
+      await getRedirectResult(auth);
+    };
+    const Loginbuttonstyles = {
+      width:250,
+      fontSize:20,
+      color:"#000000",
+      backgroundColor:"#D9D9D9",
+      padding:2,
+      borderRadius:30,
+    }
 
-  return (
-    <div>
-      <p>ログインして始める</p>
-      <button onClick={async () => await loginInWithGoogle()}>Googleでログイン</button>
-    </div>
+  return(
+    <CssBaseline>
+      <Toolbar>
+      <Box component="img" alt='MaCha' src='./src/components/image/MaChaロゴ.png' width={90} sx={{mt:-3,mb:-2}}/>
+      </Toolbar>
+      <Box
+      sx={{
+          bgcolor:"#B0DC64",
+        padding:5,
+      }}>
+      <Box
+          sx={{
+            width:"Auto",
+            fontSize:40,
+            backgroundColor:"#FFFFFF",
+            padding:2,
+          }}
+      >
+        <Box component="img" alt='MaCha' src='./src/components/image/悩む人.png' width={300} align='right'/>
+          <Box sx={{ml:5}}>
+            <Box>社会人がよく使うMail。</Box>
+            <Box>煩わしいと思いませんか？</Box>
+            <Box fontSize={20}>MaChaなら、Mailをチャット形式で送信・確認</Box>
+            <Button onClick={async () => await loginInWithGoogle()} style={Loginbuttonstyles}>Googleでログイン</Button>
+          </Box>
+      </Box>
+
+      <Box component="img" alt="1" src="./src/components/image/星1.png" width={120} sx={{ml:10}}/>
+      <Box
+      sx = {{
+        align:"center",
+        width:"Auto",
+        fontSize:24,
+        lineHeight:2.5,
+        backgroundColor:"#FFFFFF",
+        borderRadius:20,
+        padding:3,
+        boxShadow:[0,4,0,0],
+        mt:-5,
+        ml:5,
+        mr:5,
+      }}
+      >
+        <Box align="center">メールを送信したけど、打ち間違いに後から気づいた……</Box>
+        <Box align="center">それ、MaChaなら解決できます!</Box>
+        <Box align="center">MaChaなら、メールを送った後に編集できる。</Box>
+      </Box>
+
+      <Box component="img" alt="2" src="./src/components/image/星2.png" width={120} sx={{ml:10}}/>
+      <Box
+      sx = {{
+        align:"center",
+        width:"Auto",
+        fontSize:24,
+        lineHeight:2.5,
+        backgroundColor:"#FFFFFF",
+        borderRadius:20,
+        padding:3,
+        boxShadow:[0,4,0,0],
+        mt:-5,
+        ml:5,
+        mr:5,
+      }}
+      >
+        <Box align="center">メールを送信したけど、読んでくれたかどうか分からない……</Box>
+        <Box align="center">それ、MaChaなら解決できます!</Box>
+        <Box align="center">MaChaなら、既読をチャット形式で確認。</Box>
+      </Box>
+
+      <Box component="img" alt="3" src="./src/components/image/星3.png" width={120} sx={{ml:10}}/>
+      <Box
+      sx = {{
+        align:"center",
+        width:"Auto",
+        fontSize:24,
+        lineHeight:2.5,
+        backgroundColor:"#FFFFFF",
+        borderRadius:20,
+        padding:3,
+        boxShadow:[0,4,0,0],
+        mt:-5,
+        ml:5,
+        mr:5,
+      }}
+      >
+        <Box align="center">メールを確認したいけど、履歴をさかのぼるのが大変……</Box>
+        <Box align="center">それ、MaChaなら解決できます!</Box>
+        <Box align="center">MaChaなら、チャット形式でクリアな履歴。</Box>
+      </Box>
+      </Box>
+    </CssBaseline>
   );
-};
+}
 
 export default Login;
