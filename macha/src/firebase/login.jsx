@@ -1,0 +1,20 @@
+import { signInWithRedirect, getRedirectResult } from "firebase/auth";
+import { auth, provider } from "../util/firebase";
+
+const Login = () => {
+  const user = auth.currentUser;
+
+  const loginInWithGoogle = async () => {
+    await signInWithRedirect(auth, provider);
+    await getRedirectResult(auth);
+  };
+
+  return (
+    <div>
+      <p>ログインして始める</p>
+      <button onClick={async () => await loginInWithGoogle()}>Googleでログイン</button>
+    </div>
+  );
+};
+
+export default Login;
