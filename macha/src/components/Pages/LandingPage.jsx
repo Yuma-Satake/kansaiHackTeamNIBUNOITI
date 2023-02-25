@@ -1,5 +1,3 @@
-import BaseLayout from "../Templates/BaseLayout";
-
 const LandingPage = () => {
   return (
     <>
