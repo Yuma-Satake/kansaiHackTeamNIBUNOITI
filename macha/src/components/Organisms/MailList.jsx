@@ -95,7 +95,7 @@ export const MailList = () => {
   }, []);
 
   return (
-    <Box sx={{ m: 1 }}>
+    <Stack justifyContent='center' sx={{ m: 1 }}>
       {numList.lenght !== 0 ? (
         numList.map((num) => {
           return (
@@ -115,7 +115,7 @@ export const MailList = () => {
                   borderColor: "#1f1f1f",
                   py: 3,
                   pl: 3,
-                  width: "700px"
+                  width: "850px"
                 }}
               >
                 <Stack spacing={2} alignItems='flex-start'>
@@ -133,7 +133,7 @@ export const MailList = () => {
       ) : (
         <p>error</p>
       )}
-    </Box>
+    </Stack>
   );
 };
 
