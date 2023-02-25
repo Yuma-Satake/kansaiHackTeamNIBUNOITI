@@ -2,39 +2,30 @@ import PageRouter from "./router/PageRouter";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/system";
 import mainTheme from "./style/Theme";
-import { MailsContext, UserInfoContext } from "./util/userContext";
-import { useEffect, useState } from "react";
-import { getRedirectResult, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "./util/firebase";
+import { createContext, useState } from "react";
+import Login2 from "./firebase/login2";
+
+export const UserInfoContext = createContext({});
+export const MailListContext = createContext({});
+export const SelectThredIdContext = createContext({});
 
 function App() {
   const [UserInfo, setUserInfo] = useState();
-  const [Mails, setMails] = useState();
-
-  // useEffect(() => {
-  //   const GetToken = async () => {
-  //     const result = await getRedirectResult(auth);
-  //     const credential = GoogleAuthProvider.credentialFromResult(result);
-  //     const token = credential.accessToken;
-  //     const user = result.user;
-  //     console.log(token);
-  //     console.log(user);
-  //     localStorage.setItem("token", token);
-  //   };
-  //   GetToken();
-  // }, []);
+  const [MailList, setMailList] = useState();
+  const [SelectThredId, setSelectThredId] = useState();
 
   return (
-    <>
-      <MailsContext.Provider value={{ state: Mails, setState: setMails }}>
+    <SelectThredIdContext.Provider value={{ state: SelectThredId, setState: setSelectThredId }}>
+      <MailListContext.Provider value={{ state: MailList, setState: setMailList }}>
         <UserInfoContext.Provider value={{ state: UserInfo, setState: setUserInfo }}>
           <CssBaseline />
           <ThemeProvider theme={mainTheme}>
             <PageRouter />
+            <Login2 />
           </ThemeProvider>
         </UserInfoContext.Provider>
-      </MailsContext.Provider>
-    </>
+      </MailListContext.Provider>
+    </SelectThredIdContext.Provider>
   );
 }
 
