@@ -1,5 +1,7 @@
 import Button from "@mui/material/Button";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useContext } from "react";
+import { MailListContext } from "../App";
 import { auth, provider } from "../util/firebase";
 
 const Login2 = () => {
@@ -20,10 +22,20 @@ const Login2 = () => {
       });
   };
 
+  const { state: MailList, setState: setMailList } = useContext(MailListContext);
+  const Log = () => {
+    console.log(MailList);
+  };
+
   return (
-    <Button variant='contained' color='primary' onClick={SendLogin}>
-      Googleログイン
-    </Button>
+    <>
+      <Button variant='contained' color='primary' onClick={SendLogin}>
+        Googleログイン
+      </Button>
+      <Button variant='contained' onClick={Log}>
+        メール
+      </Button>
+    </>
   );
 };
 
