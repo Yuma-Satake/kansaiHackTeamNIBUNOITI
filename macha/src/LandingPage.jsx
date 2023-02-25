@@ -4,11 +4,11 @@ import Box from '@mui/material/Box';
 import { Toolbar, Typography } from "@mui/material";
 import CssBaseline from '@mui/material/CssBaseline';
 
-function App() {
+function LandingPage() {
   return(
     <CssBaseline>
       <Toolbar>
-      <Box component="img" alt='MaCha' src='./src/image/MaChaロゴ.png' width={90} sx={{mt:-3,mb:-2}}/>
+      <Box component="img" alt='MaCha' src='./src/components/image/MaChaロゴ.png' width={90} sx={{mt:-3,mb:-2}}/>
       </Toolbar>
       <Box
       sx={{
@@ -23,7 +23,7 @@ function App() {
             padding:2,
           }}
       >
-        <Box component="img" alt='MaCha' src='./src/image/悩む人.png' width={300} align='right'/>
+        <Box component="img" alt='MaCha' src='./src/components/image/悩む人.png' width={300} align='right'/>
         <Box sx = {{
           ml:5
           }}
@@ -50,7 +50,7 @@ function App() {
           </Typography>
       </Box>
 
-      <Box component="img" alt="1" src="./src/image/星1.png" width={120} sx={{ml:10}}/>
+      <Box component="img" alt="1" src="./src/components/image/星1.png" width={120} sx={{ml:10}}/>
       <Box
       sx = {{
         align:"center",
@@ -71,7 +71,7 @@ function App() {
         <Box align="center">MaChaなら、メールを送った後に編集できる。</Box>
       </Box>
 
-      <Box component="img" alt="2" src="./src/image/星2.png" width={120} sx={{ml:10}}/>
+      <Box component="img" alt="2" src="./src/components/image/星2.png" width={120} sx={{ml:10}}/>
       <Box
       sx = {{
         align:"center",
@@ -92,7 +92,7 @@ function App() {
         <Box align="center">MaChaなら、既読をチャット形式で確認。</Box>
       </Box>
 
-      <Box component="img" alt="3" src="./src/image/星3.png" width={120} sx={{ml:10}}/>
+      <Box component="img" alt="3" src="./src/components/image/星3.png" width={120} sx={{ml:10}}/>
       <Box
       sx = {{
         align:"center",
@@ -117,4 +117,4 @@ function App() {
   );
 }
 
-export default App;
+export default LandingPage;
