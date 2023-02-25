@@ -19,7 +19,7 @@ const NavBar = () => {
       <Button
         variant='contained'
         onClick={() => {
-          navigation("/ChatPage");
+          navigation("/");
         }}
       >
         <Typography noWrap={true}>チャット</Typography>

@@ -51,7 +51,6 @@ const ChatPage = () => {
         }
       })[0].value;
     });
-    console.log(emailList);
     setEmailList(emailList);
 
     const subjectList = res.data.messages.map((mail) => {
