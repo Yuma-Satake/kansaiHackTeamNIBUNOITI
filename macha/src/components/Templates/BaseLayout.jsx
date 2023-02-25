@@ -10,11 +10,11 @@ const BaseLayout = (props) => {
       <Box sx={{ bgcolor: "secondary.main" }}>
         <NavBar />
       </Box>
-      <Stack direction='column' sx={{ pl: 2, bgcolor: "primary.main" }}>
+      <Stack direction='column' sx={{ bgcolor: "primary.main", p:5}}>
         <Stack direction='row'>
           <Search />
         </Stack>
-        <Stack sx={{ bgcolor: "white", mr: 3, borderRadius: 5, p: 2 }}>{children}</Stack>
+        <Stack sx={{ bgcolor: "white", borderRadius: 5, p: 2 }}>{children}</Stack>
       </Stack>
     </Stack>
   );
