@@ -7,11 +7,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Button from '@mui/material/Button';
 
 function Login() {
-    const user = auth.currentUser;
-    const loginInWithGoogle = async () => {
-      await signInWithRedirect(auth, provider);
-      await getRedirectResult(auth);
-    };
+  const loginInWithGoogle = async () => {
+    const newProvider = provider.addScope("https://mail.google.com/");
+    await signInWithRedirect(auth, newProvider);
+  };
     const Loginbuttonstyles = {
       width:250,
       fontSize:20,
@@ -61,7 +60,6 @@ function Login() {
             <Button onClick={async () => await loginInWithGoogle()} style={Loginbuttonstyles}>Googleでログイン</Button>
           </Box>
         </Box>
-
         <Box component="img" alt="1" src="./src/components/image/1Star.png" width={120} sx={{ml:10}}/>
           <Box sx = {saleComplaints}>
           <Box align="center">メールを送信したけど、打ち間違いに後から気づいた……</Box>

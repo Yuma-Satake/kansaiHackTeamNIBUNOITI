@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import { db } from "./util/firebase";
+import { db } from "../util/firebase";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
 const WriteMail = () => {

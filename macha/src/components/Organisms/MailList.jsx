@@ -50,7 +50,7 @@ const MailList = () => {
     <Box sx={{ m: 1 }}>
       {mails.map((mail) => (
         <Stack
-          key={mails.id}
+          key={mail.id}
           sx={{ mb: 3, border: 1, borderRadius: 2, borderColor: "#1f1f1f", py: 3, pl: 3 }}
           direction='row'
         >
