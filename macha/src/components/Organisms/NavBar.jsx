@@ -24,6 +24,7 @@ const NavBar = () => {
         </Stack>
       </Button>
       <Button
+      //チャットページのパスの末尾がChatPageでないと上手く動きません。
         variant={window.location.pathname==="/ChatPage"?'contained':'contained outlined'}
         onClick={() => {
           navigation("/");
@@ -33,6 +34,7 @@ const NavBar = () => {
         <Typography noWrap={true}>チャット</Typography>
       </Button>
       <Button
+      //ユーザーページのパスの末尾がUserPageでないと上手く動きません。
         variant={window.location.pathname==="/UserPage"?'contained':'contained outlined'}
         onClick={() => {
           navigation("/");

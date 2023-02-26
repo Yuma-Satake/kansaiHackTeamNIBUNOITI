@@ -121,11 +121,15 @@ export const MailList = () => {
                 }}
               >
                 <Stack spacing={2} alignItems='flex-start'>
-                  <Typography variant='h6' sx={{ fontWeight: "bold" }}>
+                  <Typography variant='h6' sx={{ fontWeight: "bold" }} style={{textTransform: "none"}}>
                     {FromList[num]}
                   </Typography>
-                  <Typography variant='body1'>{SubjectList[num]}</Typography>
-                  <Typography variant='body2'>{SnippetList[num]}</Typography>
+                  <Typography variant='body1' style={{textTransform: "none"}}>
+                    {SubjectList[num]}
+                  </Typography>
+                  <Typography variant='body2' style={{textTransform: "none"}}>
+                    {SnippetList[num]}
+                  </Typography>
                 </Stack>
                 <ArrowForwardIosIcon color='disabled' sx={{ mx: 3 }} />
               </Stack>
