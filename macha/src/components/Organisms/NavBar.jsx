@@ -1,10 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useNavigate } from "react-router-dom";
+import Logout from "../../firebase/logout";
 import ChatIcon from "@mui/icons-material/Chat";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-
 
 const NavBar = () => {
   const navigation = useNavigate();
@@ -36,8 +36,20 @@ const NavBar = () => {
       <Button
         variant={window.location.pathname==="/UserPage"?'contained':'contained outlined'}
         onClick={() => {
-          navigation("/");
+          Logout()
+          window.location.pathname = "/";
         }}
+
+      >
+        <Typography noWrap={true}>ログアウト</Typography>
+      </Button>
+      <Button
+        variant='contained'
+        onClick={() => {
+          // TODO: fix
+          // Logout
+          // console.log("call")
+        }}  
       >
         <AccountCircleIcon sx={{ml: -3}}/>
         <Typography noWrap={true}>ユーザ</Typography>
