@@ -4,6 +4,11 @@ import { Toolbar } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Stack } from "@mui/system";
 import SendLogin from "../../firebase/SendLogin";
+import logo from "../../assets/logo.png";
+import star1 from "../../assets/star1.png";
+import star2 from "../../assets/star2.png";
+import star3 from "../../assets/star3.png";
+import human from "../../assets/human.png";
 
 function Login() {
   const MaChaStyles = {
@@ -63,7 +68,7 @@ function Login() {
         <Box
           component='img'
           alt='MaCha'
-          src='./src/assets/logo.png'
+          src={logo}
           width={200}
           sx={{ mt: -3, mb: -2, ml: 6, my: 3 }}
         />
@@ -81,7 +86,7 @@ function Login() {
             <Box
               component='img'
               alt='human'
-              src='./src/assets/human.png'
+              src={human}
               width={500}
               sx={{ mr: 20, mt: -3 }}
               align='right'
@@ -106,7 +111,7 @@ function Login() {
         </Box>
         <Stack direction='row' alignItems='center'>
           <Grid sx={{ paddingTop: "50px" }}>
-            <Box component='img' alt='1' src='./src/assets/star1.png' width={120} sx={{ ml: 10 }} />
+            <Box component='img' alt='1' src={star1} width={120} sx={{ ml: 10 }} />
             <Box sx={saleComplaints}>
               <Box align='center'>メールを送信したけど、打ち間違いに後から気づいた……</Box>
               <Box align='center' fontWeight={"Bold"}>
@@ -117,7 +122,7 @@ function Login() {
           </Grid>
         </Stack>
         <Grid sx={{ paddingTop: "50px", ml: "500px" }}>
-          <Box component='img' alt='2' src='./src/assets/star2.png' width={120} sx={{ ml: 10 }} />
+          <Box component='img' alt='2' src={star2} width={120} sx={{ ml: 10 }} />
           <Box sx={saleComplaints}>
             <Box align='center'>メールを送信したけど、読んでくれたかどうか分からない……</Box>
             <Box align='center' fontWeight={"Bold"}>
@@ -127,7 +132,7 @@ function Login() {
           </Box>
         </Grid>
         <Grid sx={{ paddingTop: "50px", ml: "1000px" }}>
-          <Box component='img' alt='3' src='./src/assets/star3.png' width={120} sx={{ ml: 10 }} />
+          <Box component='img' alt='3' src={star3} width={120} sx={{ ml: 10 }} />
           <Box sx={saleComplaints}>
             <Box align='center'>メールを確認したいけど、履歴をさかのぼるのが大変……</Box>
             <Box align='center' fontWeight={"Bold"}>
