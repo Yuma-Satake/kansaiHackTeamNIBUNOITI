@@ -8,11 +8,6 @@ import { Stack } from "@mui/system";
 import SendLogin from "../../firebase/SendLogin";
 
 function Login() {
-  const loginInWithGoogle = async () => {
-    const newProvider = provider.addScope("https://mail.google.com/");
-    await signInWithRedirect(auth, newProvider);
-  };
-
   const MaChaStyles = {
     fontWeight: "Bold",
     color: "primary.dark",
