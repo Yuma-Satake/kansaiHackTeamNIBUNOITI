@@ -169,7 +169,7 @@ const ChatPage = () => {
       <Stack spacing={5} sx={{ my: 5, mx: 8 }}>
         {ThredNumList.map((num) => {
           return (
-            <Stack direction='row'>
+            <Stack direction='row' key={num}>
               {String(EmailList[num]).indexOf(myEmail) === -1 && (
                 <AccountCircleIcon fontSize='large' sx={{ mt: 3, mr: 2 }} />
               )}
@@ -251,7 +251,7 @@ const ChatPage = () => {
                   variant='standard'
                   label='本文'
                   multiline
-                  sx={{ width: "60em", color: "secondary.light" }}
+                  sx={{ width: "70em", color: "secondary.light" }}
                   value={MailText}
                   onChange={(e) => {
                     setMailText(e.target.value);

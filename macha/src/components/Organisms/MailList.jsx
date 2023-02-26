@@ -117,17 +117,21 @@ export const MailList = () => {
                   borderColor: "#1f1f1f",
                   py: 3,
                   pl: 3,
-                  width: "850px"
+                  width: "1600px"
                 }}
               >
                 <Stack spacing={2} alignItems='flex-start'>
-                  <Typography variant='h6' sx={{ fontWeight: "bold" }} style={{textTransform: "none"}}>
+                  <Typography
+                    variant='h6'
+                    sx={{ fontWeight: "bold" }}
+                    style={{ textTransform: "none" }}
+                  >
                     {FromList[num]}
                   </Typography>
-                  <Typography variant='body1' style={{textTransform: "none"}}>
+                  <Typography variant='body1' style={{ textTransform: "none" }}>
                     {SubjectList[num]}
                   </Typography>
-                  <Typography variant='body2' style={{textTransform: "none"}}>
+                  <Typography variant='body2' style={{ textTransform: "none" }}>
                     {SnippetList[num]}
                   </Typography>
                 </Stack>

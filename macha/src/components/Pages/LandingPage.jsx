@@ -71,7 +71,7 @@ function Login() {
           component='img'
           alt='MaCha'
           src='./src/assets/logo.png'
-          width={90}
+          width={200}
           sx={{ mt: -3, mb: -2, ml: 6 }}
         />
       </Toolbar>

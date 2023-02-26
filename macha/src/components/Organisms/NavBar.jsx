@@ -10,43 +10,52 @@ const NavBar = () => {
   const navigation = useNavigate();
 
   return (
-    <Stack spacing={2} sx={{ m: 3 }}>
+    <Stack spacing={2} sx={{ ml: 3, mr: 3 }}>
       <Button
         onClick={() => {
           navigation("/MailsPage");
         }}
       >
-        <Box component={"img"} alt='MaCha' src='./src/assets/logo.png' width={100} sx={{ml:-0.2,mt:-2,pb:1}}/>
+        <Box
+          component={"img"}
+          alt='MaCha'
+          src='./src/assets/logo.png'
+          width={130}
+          sx={{ ml: -0.2, pb: 1 }}
+        />
       </Button>
       <Button
-        variant={window.location.pathname==="/MailsPage"?'contained':'contained outlined'}
+        variant={window.location.pathname === "/MailsPage" ? "contained" : "contained outlined"}
+        sx={{ p: 2 }}
         onClick={() => {
           navigation("/MailsPage");
         }}
       >
         <Stack direction={"row"}>
-          <ChatIcon sx={{ml: -7}}/>
+          <ChatIcon sx={{ ml: -7, mr: 1 }} />
           <Typography noWrap={true}>受信</Typography>
         </Stack>
       </Button>
       <Button
-        variant={window.location.pathname==="/ChatPage"?'contained':'contained outlined'}
+        variant={window.location.pathname === "/ChatPage" ? "contained" : "contained outlined"}
+        sx={{ p: 2 }}
         onClick={() => {
           navigation("/");
         }}
       >
-        <QuestionAnswerIcon sx={{ml: -3}}/>
+        <QuestionAnswerIcon sx={{ ml: -3, mr: 1 }} />
         <Typography noWrap={true}>チャット</Typography>
       </Button>
       <Button
-        variant={window.location.pathname==="/UserPage"?'contained':'contained outlined'}
+        variant={window.location.pathname === "/UserPage" ? "contained" : "contained outlined"}
+        sx={{ p: 2 }}
         onClick={() => {
-          Logout()
+          Logout();
           window.location.pathname = "/";
         }}
       >
-        <AccountCircleIcon sx={{ml: -1}}/>
-        <Typography noWrap={true}>アカウント</Typography>
+        <AccountCircleIcon sx={{ ml: -1, mr: 1 }} />
+        <Typography noWrap={true}>ログアウト</Typography>
       </Button>
     </Stack>
   );

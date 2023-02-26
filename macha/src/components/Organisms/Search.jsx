@@ -17,7 +17,7 @@ const Search = () => {
         sx={{ width: "20em" }}
         value={SearchInput}
         onChange={(e) => {
-          setSerchInput(e.target.value);
+          setSearchInput(e.target.value);
         }}
       />
     </Stack>
