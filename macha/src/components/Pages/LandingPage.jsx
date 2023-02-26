@@ -1,5 +1,3 @@
-import { signInWithRedirect } from "firebase/auth";
-import { auth, provider } from "../../util/firebase";
 import * as React from "react";
 import { Box, Grid } from "@mui/material";
 import { Toolbar } from "@mui/material";
