@@ -130,6 +130,16 @@ const ChatPage = () => {
     window.open(
       `https://script.google.com/macros/s/AKfycby8WE8DscDWr06hEuXkaRc6xLEfdSGZihR4KUL-80WR4MBFcZZ2PUV-V_v4-T-2cAT9/exec?to=${recipient}&subject=${subject}&text=${body}&from=${from}&threadid=${threadid}&judge=${judge}`
     );
+    const SubjecTemp = [...SubjectList, subject];
+    setSubjectList(SubjecTemp);
+
+    const SnippetTemp = [...SnippetList, body];
+    setSnippetList(SnippetTemp);
+
+    const EmailTemp = [...EmailList, from];
+    setEmailList(EmailTemp);
+
+    console.log(SubjectList);
     setMailSubject("");
     setMailText("");
   };
@@ -246,7 +256,6 @@ const ChatPage = () => {
                   value={MailText}
                   onChange={(e) => {
                     setMailText(e.target.value);
-                    console.log(MailText);
                   }}
                 />
                 <Button sx={{ color: "secondary.light", ml: 3 }} onClick={SendMails}>
