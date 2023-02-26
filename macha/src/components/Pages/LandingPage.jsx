@@ -13,7 +13,7 @@ function Login() {
   };
     const MaChaStyles = {
       fontWeight:"Bold",
-      color:"primary.main",
+      color:"primary.dark",
       fontFamily:"Roboto",
       fontSize:20
     }
@@ -28,7 +28,6 @@ function Login() {
       ml:"-39.7px",
       pb:"10px",
     }
-
     const buttonstyles = {
       width:250,
       fontSize:20,
@@ -64,7 +63,7 @@ function Login() {
     }
 
   return(
-    <fragment>
+    <>
       <Toolbar>
       <Box component="img" alt='MaCha' src='./src/assets/logo.png' width={90} sx={{mt:-3,mb:-2}}/>
       </Toolbar>
@@ -73,6 +72,7 @@ function Login() {
             bgcolor:"primary.main",
             fontFamily:"Noto Sanz jp",
             padding:5,
+            flexBasis:true
         }}
       >
         <Box sx={title}>
@@ -119,7 +119,7 @@ function Login() {
           </Box>
         </Grid>
       </Box>
-    </fragment>
+    </>
   );
 }
 
