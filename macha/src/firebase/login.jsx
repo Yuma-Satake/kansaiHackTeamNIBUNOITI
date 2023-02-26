@@ -66,13 +66,8 @@ function Login() {
   return (
     <>
       <Toolbar>
-        <Box
-          component='img'
-          alt='MaCha'
-          src='./src/components/image/MaCha.png'
-          width={90}
-          sx={{ mt: -3, mb: -2 }}
-        />
+
+      <Box component="img" alt='MaCha' src='./src/assets/logo.png' width={90} sx={{mt:-3,mb:-2}}/>
       </Toolbar>
       <Box
         sx={{
@@ -82,14 +77,10 @@ function Login() {
         }}
       >
         <Box sx={title}>
-          <Box
-            component='img'
-            alt='MaCha'
-            src='./src/components/image/woman.png'
-            width={300}
-            align='right'
-          />
-          <Grid sx={{ ml: 5 }}>
+
+          <Box component="img" alt='MaCha' src='./src/assets/human.png' width={300} align='right'/>
+          <Grid sx={{ml:5}}>
+
             <Grid sx={test}>
               <Box>社会人がよく使うMail。</Box>
               <Box>煩わしいと思いませんか？</Box>
@@ -109,53 +100,30 @@ function Login() {
           </Grid>
         </Box>
         <Stack direction='row' alignItems='center'>
-          <Grid sx={{ paddingTop: "50px" }}>
-            <Box
-              component='img'
-              alt='1'
-              src='./src/components/image/1Star.png'
-              width={120}
-              sx={{ ml: 10 }}
-            />
-            <Box sx={saleComplaints}>
-              <Box align='center'>メールを送信したけど、打ち間違いに後から気づいた……</Box>
-              <Box align='center' fontWeight={"Bold"}>
-                それ、MaChaなら解決できます!!!
-              </Box>
-              <Box align='center'>MaChaなら、メールを送った後に編集できる。</Box>
+
+          <Grid sx={{paddingTop:"50px"}}>
+            <Box component="img" alt="1" src="./src/assets/1Star.png" width={120} sx={{ml:10}}/>
+            <Box sx = {saleComplaints}>
+              <Box align="center">メールを送信したけど、打ち間違いに後から気づいた……</Box>
+              <Box align="center" fontWeight={"Bold"} >それ、MaChaなら解決できます!!!</Box>
+              <Box align="center">MaChaなら、メールを送った後に編集できる。</Box>
             </Box>
           </Grid>
         </Stack>
-        <Grid sx={{ paddingTop: "50px", ml: "300px" }}>
-          <Box
-            component='img'
-            alt='2'
-            src='./src/components/image/2Star.png'
-            width={120}
-            sx={{ ml: 10 }}
-          />
-          <Box sx={saleComplaints}>
-            <Box align='center'>メールを送信したけど、読んでくれたかどうか分からない……</Box>
-            <Box align='center' fontWeight={"Bold"}>
-              それ、MaChaなら解決できます!!!
-            </Box>
-            <Box align='center'>MaChaなら、既読をチャット形式で確認。</Box>
+        <Grid sx={{paddingTop:"50px",ml:"300px"}}>
+          <Box component="img" alt="2" src="./src/assets/2Star.png" width={120} sx={{ml:10}}/>
+          <Box sx = {saleComplaints} >
+            <Box align="center">メールを送信したけど、読んでくれたかどうか分からない……</Box>
+            <Box align="center"fontWeight={"Bold"}>それ、MaChaなら解決できます!!!</Box>
+            <Box align="center">MaChaなら、既読をチャット形式で確認。</Box>
           </Box>
         </Grid>
-        <Grid sx={{ paddingTop: "50px" }}>
-          <Box
-            component='img'
-            alt='3'
-            src='./src/components/image/3Star.png'
-            width={120}
-            sx={{ ml: 10 }}
-          />
-          <Box sx={saleComplaints}>
-            <Box align='center'>メールを確認したいけど、履歴をさかのぼるのが大変……</Box>
-            <Box align='center' fontWeight={"Bold"}>
-              それ、MaChaなら解決できます!!!
-            </Box>
-            <Box align='center'>MaChaなら、チャット形式でクリアな履歴。</Box>
+        <Grid sx={{paddingTop:"50px"}}>
+          <Box component="img" alt="3" src="./src/assets/3Star.png" width={120} sx={{ml:10}}/>
+            <Box sx = {saleComplaints}>
+            <Box align="center">メールを確認したいけど、履歴をさかのぼるのが大変……</Box>
+            <Box align="center"fontWeight={"Bold"}>それ、MaChaなら解決できます!!!</Box>
+            <Box align="center">MaChaなら、チャット形式でクリアな履歴。</Box>
           </Box>
         </Grid>
       </Box>
