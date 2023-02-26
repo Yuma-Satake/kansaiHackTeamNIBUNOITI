@@ -1,6 +1,7 @@
 import { Box, Button, CssBaseline, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useNavigate } from "react-router-dom";
+import Logout from "../../firebase/logout";
 
 const NavBar = () => {
   const navigation = useNavigate();
@@ -27,8 +28,20 @@ const NavBar = () => {
       <Button
         variant='contained'
         onClick={() => {
-          navigation("/");
+          Logout()
+          window.location.pathname = "/";
         }}
+
+      >
+        <Typography noWrap={true}>ログアウト</Typography>
+      </Button>
+      <Button
+        variant='contained'
+        onClick={() => {
+          // TODO: fix
+          // Logout
+          // console.log("call")
+        }}  
       >
         <Typography noWrap={true}>ユーザ</Typography>
       </Button>
