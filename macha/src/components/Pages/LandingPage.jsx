@@ -67,7 +67,7 @@ function Login() {
           alt='MaCha'
           src='./src/assets/logo.png'
           width={200}
-          sx={{ mt: -3, mb: -2, ml: 6 }}
+          sx={{ mt: -3, mb: -2, ml: 6, my: 3 }}
         />
       </Toolbar>
       <Box
