@@ -13,7 +13,8 @@ const NavBar = () => {
     <Stack spacing={2} sx={{ m: 3 }}>
       <Box component={"img"} alt='MaCha' src='./src/assets/logo.png' width={100} sx={{ml:-0.8,mt:-2,pb:1}}/>
       <Button
-        variant={window.location.pathname==="/MailsPage"?'contained':'contained outlined'}
+        //パスの末尾がMailPageもしくは、無記入の時発火します。
+        variant={window.location.pathname==="/MailsPage"||"/"?'contained':'contained outlined'}
         onClick={() => {
           navigation("/MailsPage");
         }}
