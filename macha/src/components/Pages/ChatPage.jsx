@@ -139,7 +139,6 @@ const ChatPage = () => {
     const EmailTemp = [...EmailList, from];
     setEmailList(EmailTemp);
 
-    console.log(SubjectList);
     setMailSubject("");
     setMailText("");
   };
