@@ -73,15 +73,13 @@ export const MailList = () => {
       const subjectList = val.map((mail) => {
         return mail.payload.headers.filter((val) => {
           if (val.name === "Subject") {
-            console.log(val.value);
             return val.value;
           } else {
-            console.log("ノーパス");
             return "件名無し";
           }
         })[0].value;
       });
-      console.log(val[0].threadId);
+
       const snippetList = val.map((mail) => {
         return mail.snippet;
       });

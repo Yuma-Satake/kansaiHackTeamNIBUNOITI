@@ -29,7 +29,7 @@ const Login2 = () => {
 
   return (
     <>
-      <Button variant='contained' color='primary' onClick={SendLogin}>
+      <Button variant='contained' color='primary' style={{textTransform: "none"}} onClick={SendLogin}>
         Googleログイン
       </Button>
       <Button variant='contained' onClick={Log}>

@@ -4,7 +4,6 @@ import {
   Button,
   Container,
   IconButton,
-  InputLabel,
   MenuItem,
   Modal,
   Select,
@@ -25,6 +24,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import CreateIcon from "@mui/icons-material/Create";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { ModalStyle } from "../../style/ModalStyle";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const ChatPage = () => {
   const navigation = useNavigate();
@@ -44,6 +44,9 @@ const ChatPage = () => {
   const [MailText, setMailText] = useState("");
 
   const [ModalOpen, setModalOpen] = useState(false);
+
+  const [ThredId, setThredId] = useState(0);
+  const [EditFlg, setEditFlg] = useState(false);
 
   const myEmail = localStorage.getItem("email");
 
@@ -80,6 +83,9 @@ const ChatPage = () => {
       return val < res.data.messages.length;
     });
     setThredNumList(thredNumList);
+
+    const thredId = res.data.messages[0].threadId;
+    setThredId(thredId);
 
     const snippetList = res.data.messages.map((mail) => {
       return mail.snippet;
@@ -119,11 +125,20 @@ const ChatPage = () => {
     const subject = MailSubject; //件名
     const body = MailText; //本文
     const from = myEmail;
+    const threadid = ThredId; //スレッドID
+    const judge = EditFlg ? 0 : 1; //消す消さない num（0:中止 1:通常送信 ）
     window.open(
-      `https://script.google.com/macros/s/AKfycby8WE8DscDWr06hEuXkaRc6xLEfdSGZihR4KUL-80WR4MBFcZZ2PUV-V_v4-T-2cAT9/exec?to=${recipient}&subject=${subject}&text=${body}&from=${from}`
+      `https://script.google.com/macros/s/AKfycby8WE8DscDWr06hEuXkaRc6xLEfdSGZihR4KUL-80WR4MBFcZZ2PUV-V_v4-T-2cAT9/exec?to=${recipient}&subject=${subject}&text=${body}&from=${from}&threadid=${threadid}&judge=${judge}`
     );
     setMailSubject("");
     setMailText("");
+  };
+
+  const EditMessage = (num) => {
+    setMailSubject(SubjectList[num]);
+    setMailText(SnippetList[num]);
+    setInputOpen(true);
+    setEditFlg(true);
   };
 
   return (
@@ -154,14 +169,20 @@ const ChatPage = () => {
                   <Typography variant='h6' sx={{ mr: 3 }}>
                     {SubjectList[num]}
                   </Typography>
-                  <CreateIcon fontSize='small' />
-                  <ContentCopyIcon fontSize='small' />
+                  <CreateIcon fontSize='small' onClick={() => EditMessage(num)} />
+                  <ContentCopyIcon
+                    fontSize='small'
+                    onClick={() => {
+                      navigator.clipboard.writeText("コピーしました");
+                    }}
+                  />
                 </Stack>
                 <Typography variant='body2'>{SnippetList[num]}</Typography>
               </Stack>
-              {String(EmailList[num]).indexOf(myEmail) > 0 && (
-                <AccountCircleIcon fontSize='large' sx={{ mt: 3, ml: 2 }} />
-              )}
+              {String(EmailList[num]).indexOf(myEmail) > 0 ||
+                (String(EmailList[num]) === myEmail && (
+                  <AccountCircleIcon fontSize='large' sx={{ mt: 3, ml: 2 }} />
+                ))}
             </Stack>
           );
         })}
@@ -191,9 +212,19 @@ const ChatPage = () => {
                 <HowToRegIcon />
                 <Typography>テンプレート</Typography>
               </Button>
-              <Button sx={{ color: "secondary.light" }}>
+              <Button sx={{ color: "secondary.light", mr: 1 }}>
                 <AttachFileIcon />
                 <Typography>ファイル</Typography>
+              </Button>
+              <Button
+                sx={{ color: "secondary.light" }}
+                onClick={() => {
+                  setMailSubject("");
+                  setMailText("");
+                }}
+              >
+                <DeleteIcon />
+                <Typography>削除</Typography>
               </Button>
             </Stack>
             <Stack direction='column' spacing={4} sx={{ mt: 5 }}>
@@ -220,9 +251,15 @@ const ChatPage = () => {
                 />
                 <Button sx={{ color: "secondary.light", ml: 3 }} onClick={SendMails}>
                   <SendIcon sx={{ mr: 1 }} />
-                  <Typography variant='body1' noWrap={true}>
-                    送信する
-                  </Typography>
+                  {EditFlg === false ? (
+                    <Typography variant='body1' noWrap={true}>
+                      送信する
+                    </Typography>
+                  ) : (
+                    <Typography variant='body1' noWrap={true}>
+                      編集完了
+                    </Typography>
+                  )}
                 </Button>
               </Stack>
             </Stack>
