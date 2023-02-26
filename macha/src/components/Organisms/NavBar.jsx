@@ -1,4 +1,4 @@
-import { Box, Button, Typography ,InputAdornment } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import ChatIcon from "@mui/icons-material/Chat";
@@ -13,7 +13,7 @@ const NavBar = () => {
     <Stack spacing={2} sx={{ m: 3 }}>
       <Box component={"img"} alt='MaCha' src='./src/assets/logo.png' width={100} sx={{ml:-0.8,mt:-2,pb:1}}/>
       <Button
-        variant={window.location.pathname=="/MailsPage"?'contained':'contained outlined'}
+        variant={window.location.pathname==="/MailsPage"?'contained':'contained outlined'}
         onClick={() => {
           navigation("/MailsPage");
         }}
@@ -24,7 +24,7 @@ const NavBar = () => {
         </Stack>
       </Button>
       <Button
-        variant={window.location.pathname=="/ChatPage"?'contained':'contained outlined'}
+        variant={window.location.pathname==="/ChatPage"?'contained':'contained outlined'}
         onClick={() => {
           navigation("/");
         }}
@@ -33,7 +33,7 @@ const NavBar = () => {
         <Typography noWrap={true}>チャット</Typography>
       </Button>
       <Button
-        variant={window.location.pathname=="/UserPage"?'contained':'contained outlined'}
+        variant={window.location.pathname==="/UserPage"?'contained':'contained outlined'}
         onClick={() => {
           navigation("/");
         }}
