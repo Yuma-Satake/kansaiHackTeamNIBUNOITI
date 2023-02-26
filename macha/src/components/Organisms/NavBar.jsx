@@ -11,16 +11,21 @@ const NavBar = () => {
 
   return (
     <Stack spacing={2} sx={{ m: 3 }}>
-      <Box component={"img"} alt='MaCha' src='./src/assets/logo.png' width={100} sx={{ml:-0.8,mt:-2,pb:1}}/>
       <Button
-        //パスの末尾がMailPageもしくは、無記入の時発火します。
-        variant={window.location.pathname==="/MailsPage"||"/"?'contained':'contained outlined'}
+        onClick={() => {
+          navigation("/MailsPage");
+        }}
+      >
+        <Box component={"img"} alt='MaCha' src='./src/assets/logo.png' width={100} sx={{ml:-0.2,mt:-2,pb:1}}/>
+      </Button>
+      <Button
+        variant={window.location.pathname==="/MailsPage"?'contained':'contained outlined'}
         onClick={() => {
           navigation("/MailsPage");
         }}
       >
         <Stack direction={"row"}>
-          <ChatIcon sx={{ml: -5}}/>
+          <ChatIcon sx={{ml: -7}}/>
           <Typography noWrap={true}>受信</Typography>
         </Stack>
       </Button>
@@ -30,7 +35,7 @@ const NavBar = () => {
           navigation("/");
         }}
       >
-        <QuestionAnswerIcon sx={{ml: -1}}/>
+        <QuestionAnswerIcon sx={{ml: -3}}/>
         <Typography noWrap={true}>チャット</Typography>
       </Button>
       <Button
@@ -39,20 +44,9 @@ const NavBar = () => {
           Logout()
           window.location.pathname = "/";
         }}
-
       >
-        <Typography noWrap={true}>ログアウト</Typography>
-      </Button>
-      <Button
-        variant='contained'
-        onClick={() => {
-          // TODO: fix
-          // Logout
-          // console.log("call")
-        }}  
-      >
-        <AccountCircleIcon sx={{ml: -3}}/>
-        <Typography noWrap={true}>ユーザ</Typography>
+        <AccountCircleIcon sx={{ml: -1}}/>
+        <Typography noWrap={true}>アカウント</Typography>
       </Button>
     </Stack>
   );
