@@ -20,8 +20,8 @@ const NavBar = () => {
           component={"img"}
           alt='MaCha'
           src='./src/assets/logo.png'
-          width={130}
-          sx={{ ml: -0.2, pb: 1 }}
+          width={150}
+          sx={{ ml: -0.2, pb: 1, mt: 4 }}
         />
       </Button>
       <Button
