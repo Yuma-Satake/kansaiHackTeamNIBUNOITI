@@ -5,6 +5,7 @@ import Logout from "../../firebase/logout";
 import ChatIcon from "@mui/icons-material/Chat";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import logo from "../../assets/logo.png";
 
 const NavBar = () => {
   const navigation = useNavigate();
@@ -16,13 +17,7 @@ const NavBar = () => {
           navigation("/MailsPage");
         }}
       >
-        <Box
-          component={"img"}
-          alt='MaCha'
-          src='./src/assets/logo.png'
-          width={150}
-          sx={{ ml: -0.2, pb: 1, mt: 4 }}
-        />
+        <Box component={"img"} alt='MaCha' src={logo} width={150} sx={{ ml: -0.2, pb: 1, mt: 4 }} />
       </Button>
       <Button
         variant={window.location.pathname === "/MailsPage" ? "contained" : "contained outlined"}
