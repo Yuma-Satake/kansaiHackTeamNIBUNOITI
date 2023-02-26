@@ -23,20 +23,20 @@ function Login() {
       backgroundColor:"#A0DFDF",
       borderStartStartRadius:"20px",
       borderStartEndRadius:"20px",
-      pt:"20px",
-      mt:"-23.8px",
-      pl:"20px",
+      pt:5,
+      mt:-10,
+      pl:"40px",
       ml:"-39.7px",
-      pb:"10px",
+      pb:3.5,
     }
     const buttonstyles = {
       width:250,
       fontSize:20,
       color:"#1F1F1F",
       backgroundColor:"#E8E8E8",
-      padding:2,
+      padding:8,
       textTransform: "none",
-      borderRadius:"30px",
+      borderRadius:"10px",
     }
     const title ={
       width:"Auto",
@@ -46,7 +46,7 @@ function Login() {
       letterSpacing:3,
       lineHeight:1.5,
       borderRadius:"20px",
-      paddingTop:3,
+      paddingTop:10,
       paddingBottom:3,
     }
     const saleComplaints = {
@@ -66,7 +66,7 @@ function Login() {
   return(
     <>
       <Toolbar>
-      <Box component="img" alt='MaCha' src='./src/assets/logo.png' width={90} sx={{mt:-3,mb:-2}}/>
+      <Box component="img" alt='MaCha' src='./src/assets/logo.png' width={90} sx={{mt:-3,mb:-2,ml:6}}/>
       </Toolbar>
       <Box
         sx={{
@@ -77,14 +77,14 @@ function Login() {
         }}
       >
         <Box sx={title}>
-          <Box component="img" alt='human' src='./src/assets/human.png' width={300} align='right'/>
           <Grid sx={{ml:5}}>
+            <Box component="img" alt='human' src='./src/assets/human.png' width={500} sx={{mr:20, mt:-3}} align='right'/>
             <Grid sx={test}>
               <Box>社会人がよく使うMail。</Box>
               <Box>煩わしいと思いませんか？</Box>
             </Grid>
             <Grid fontSize={20} sx={{ mt: "10px" }}>
-              <Stack direction={"row"}>
+              <Stack direction={"row"} sx={{mt:3}}>
                 <Box>今すぐ</Box>
                 <Box sx={MaChaStyles}>MaCha</Box>
                 <Box>で、Mailをチャット形式で送信・確認</Box>
@@ -108,7 +108,7 @@ function Login() {
             </Box>
           </Grid>
         </Stack>
-        <Grid sx={{paddingTop:"50px",ml:"300px"}}>
+        <Grid sx={{paddingTop:"50px",ml:"500px"}}>
           <Box component="img" alt="2" src="./src/assets/star2.png" width={120} sx={{ml:10}}/>
           <Box sx = {saleComplaints} >
             <Box align="center">メールを送信したけど、読んでくれたかどうか分からない……</Box>
@@ -116,7 +116,7 @@ function Login() {
             <Box align="center">MaChaなら、既読をチャット形式で確認。</Box>
           </Box>
         </Grid>
-        <Grid sx={{paddingTop:"50px"}}>
+        <Grid sx={{paddingTop:"50px",ml:"1000px"}}>
           <Box component="img" alt="3" src="./src/assets/star3.png" width={120} sx={{ml:10}}/>
             <Box sx = {saleComplaints}>
             <Box align="center">メールを確認したいけど、履歴をさかのぼるのが大変……</Box>
