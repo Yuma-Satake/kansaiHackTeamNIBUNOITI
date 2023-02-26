@@ -1,9 +1,9 @@
 import { signInWithRedirect } from "firebase/auth";
 import { auth, provider } from "../../util/firebase";
-import * as React from 'react'
-import { Box, Grid } from '@mui/material';
+import * as React from "react";
+import { Box, Grid } from "@mui/material";
 import { Toolbar } from "@mui/material";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import { Stack } from "@mui/system";
 
 function Login() {
@@ -11,6 +11,7 @@ function Login() {
     const newProvider = provider.addScope("https://mail.google.com/");
     await signInWithRedirect(auth, newProvider);
   };
+
     const MaChaStyles = {
       fontWeight:"Bold",
       color:"primary.dark",
@@ -82,17 +83,22 @@ function Login() {
               <Box>社会人がよく使うMail。</Box>
               <Box>煩わしいと思いませんか？</Box>
             </Grid>
-            <Grid fontSize={20} sx={{mt:"10px"}}>
+            <Grid fontSize={20} sx={{ mt: "10px" }}>
               <Stack direction={"row"}>
-                <Box>今すぐ</Box><Box sx={MaChaStyles}>MaCha</Box><Box>で、Mailをチャット形式で送信・確認</Box>
+                <Box>今すぐ</Box>
+                <Box sx={MaChaStyles}>MaCha</Box>
+                <Box>で、Mailをチャット形式で送信・確認</Box>
               </Stack>
             </Grid>
-              <Grid sx={{mt:2}}>
-                <Button onClick={async () => await loginInWithGoogle()} style={buttonstyles}>Googleでログイン</Button>
-              </Grid>
+            <Grid sx={{ mt: 2 }}>
+              <Button onClick={async () => await loginInWithGoogle()} style={buttonstyles}>
+                Googleでログイン
+              </Button>
+            </Grid>
           </Grid>
         </Box>
         <Stack direction='row' alignItems='center'>
+
           <Grid sx={{paddingTop:"50px"}}>
             <Box component="img" alt="1" src="./src/assets/star1.png" width={120} sx={{ml:10}}/>
             <Box sx = {saleComplaints}>

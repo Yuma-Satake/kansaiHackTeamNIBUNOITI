@@ -1,9 +1,18 @@
 import BaseLayout from "../Templates/BaseLayout";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Button, IconButton, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  IconButton,
+  InputLabel,
+  MenuItem,
+  Modal,
+  Select,
+  TextField,
+  Typography
+} from "@mui/material";
 import { Stack } from "@mui/system";
 import { useContext, useEffect, useState } from "react";
-import ChatItem from "../Organisms/ChatItem";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
@@ -15,6 +24,7 @@ import { useNavigate } from "react-router-dom";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import CreateIcon from "@mui/icons-material/Create";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { ModalStyle } from "../../style/ModalStyle";
 
 const ChatPage = () => {
   const navigation = useNavigate();
@@ -22,7 +32,6 @@ const ChatPage = () => {
   const [ThredNumList, setThredNumList] = useState([
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
   ]);
-  const [ThredListData, setThredListData] = useState([]);
   const [ThredTitle, setThredTitle] = useState("スレッド名");
   const [InputOpen, setInputOpen] = useState(false);
 
@@ -30,6 +39,11 @@ const ChatPage = () => {
   const [SubjectList, setSubjectList] = useState([]);
   const [SnippetList, setSnippetList] = useState([]);
   const [EmailList, setEmailList] = useState([]);
+
+  const [MailSubject, setMailSubject] = useState("");
+  const [MailText, setMailText] = useState("");
+
+  const [ModalOpen, setModalOpen] = useState(false);
 
   const myEmail = localStorage.getItem("email");
 
@@ -100,6 +114,18 @@ const ChatPage = () => {
     GetThread();
   }, []);
 
+  const SendMails = async () => {
+    const recipient = FromList[0]; //送信先のメールアドレス
+    const subject = MailSubject; //件名
+    const body = MailText; //本文
+    const from = myEmail;
+    window.open(
+      `https://script.google.com/macros/s/AKfycby8WE8DscDWr06hEuXkaRc6xLEfdSGZihR4KUL-80WR4MBFcZZ2PUV-V_v4-T-2cAT9/exec?to=${recipient}&subject=${subject}&text=${body}&from=${from}`
+    );
+    setMailSubject("");
+    setMailText("");
+  };
+
   return (
     <BaseLayout>
       <Stack
@@ -116,7 +142,7 @@ const ChatPage = () => {
         </IconButton>
         <Typography variant='h5'>{FromList[0]}</Typography>
       </Stack>
-      <Stack spacing={5} sx={{ my: 5, mx: 10 }}>
+      <Stack spacing={5} sx={{ my: 5, mx: 8 }}>
         {ThredNumList.map((num) => {
           return (
             <Stack direction='row'>
@@ -156,9 +182,14 @@ const ChatPage = () => {
               >
                 <ExpandMoreIcon fontSize='large' />
               </IconButton>
-              <Button sx={{ color: "secondary.light" }}>
+              <Button
+                sx={{ color: "secondary.light" }}
+                onClick={() => {
+                  setModalOpen(true);
+                }}
+              >
                 <HowToRegIcon />
-                <Typography>署名</Typography>
+                <Typography>テンプレート</Typography>
               </Button>
               <Button sx={{ color: "secondary.light" }}>
                 <AttachFileIcon />
@@ -170,6 +201,10 @@ const ChatPage = () => {
                 variant='standard'
                 label='件名'
                 sx={{ width: "20em", color: "secondary.light" }}
+                value={MailSubject}
+                onChange={(e) => {
+                  setMailSubject(e.target.value);
+                }}
               />
               <Stack direction='row' alignItems='center'>
                 <TextField
@@ -177,10 +212,17 @@ const ChatPage = () => {
                   label='本文'
                   multiline
                   sx={{ width: "60em", color: "secondary.light" }}
+                  value={MailText}
+                  onChange={(e) => {
+                    setMailText(e.target.value);
+                    console.log(MailText);
+                  }}
                 />
-                <Button sx={{ color: "secondary.light", ml: 3 }}>
+                <Button sx={{ color: "secondary.light", ml: 3 }} onClick={SendMails}>
                   <SendIcon sx={{ mr: 1 }} />
-                  <Typography>送信する</Typography>
+                  <Typography variant='body1' noWrap={true}>
+                    送信する
+                  </Typography>
                 </Button>
               </Stack>
             </Stack>
@@ -197,6 +239,75 @@ const ChatPage = () => {
           </Button>
         )}
       </Stack>
+
+      <Modal
+        open={ModalOpen}
+        onClose={() => {
+          setModalOpen(!ModalOpen);
+        }}
+      >
+        <Container maxWidth='xs' sx={{ ...ModalStyle }}>
+          <Stack sx={{ mx: 8 }} spacing={3}>
+            <Typography variant='body1' sx={{ textAlign: "center" }}>
+              テンプレートを選択する
+            </Typography>
+            <Select
+              label='Age'
+              value={MailText}
+              onChange={(e) => {
+                setMailText(e.target.value);
+              }}
+            >
+              <MenuItem
+                value={
+                  "チームにぶんのいち様。ハッカソンの結果についてご通知させて頂きます。この度はチームにぶんのいちチーム様を優勝とさせて頂く運びとなりました。まずご連絡までよろしくお願い致します。"
+                }
+              >
+                ハッカソン優勝のお知らせ
+              </MenuItem>
+              <MenuItem
+                value={
+                  "株式会社●●●●●●●●様お世話になっております。一般社団法人日本ビジネスメール協会の山田太郎です。先日はお時間いただきありがとうございます。次回の会議についてお知らせいたします。内容をご確認の上、ご出席をお願いいたします。日時：●●年●●月●●日（●曜日）●●時～●●時場所：貴社（第2会議室）参加者：貴社　●●部長、●●係長当協会　営業部●●、●●課題：●●●●備考：参加者の変更や不明点がありましたら山田までご連絡くださいよろしくお願いいたします。"
+                }
+              >
+                会議の開催通知
+              </MenuItem>
+              <MenuItem
+                value={
+                  "株式会社●●●●●●●●様お世話になっております。一般社団法人日本ビジネスメール協会の山田太郎です。本日はお忙しい中、貴重なお時間をいただきありがとうございます。本日いただいた課題を確認の上、今週金曜日までに回答いたします。ご検討いただくにあたり、他に必要なものがありましたらお知らせください。貴社のお役に立てるよう全力で取り組みます。引き続きよろしくお願いいたします"
+                }
+              >
+                訪問後のお礼
+              </MenuItem>
+              <MenuItem
+                value={
+                  "株式会社●●●●●●●●様お世話になっております。一般社団法人日本ビジネスメール協会の山田太郎です。●/●（●）開催「●●（セミナー名）」についてご連絡します。新型コロナウイルス感染症（COVID-19）の動向に鑑みて、セミナーの開催を中止させていただくことになりました。すでにお申し込みが完了している段階でのご連絡となり、大変恐縮ですがご理解いただけますと幸いです。今後の状況に応じて、あらためて企画を検討し、ご連絡します。ご迷惑をおかけして恐縮ですが、ご理解とご了承のほど、よろしくお願いいたします。"
+                }
+              >
+                開催中止のお知らせ
+              </MenuItem>
+            </Select>
+            {MailText !== "" && (
+              <TextField
+                value={MailText}
+                multiline
+                onChange={(e) => {
+                  setMailText(e.target.value);
+                }}
+              />
+            )}
+            <Button
+              variant='contained'
+              sx={{ mb: 2 }}
+              onClick={() => {
+                setModalOpen(false);
+              }}
+            >
+              決定
+            </Button>
+          </Stack>
+        </Container>
+      </Modal>
     </BaseLayout>
   );
 };

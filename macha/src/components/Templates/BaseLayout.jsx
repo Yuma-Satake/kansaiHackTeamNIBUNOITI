@@ -14,7 +14,7 @@ const BaseLayout = (props) => {
         <Stack direction='row'>
           <Search />
         </Stack>
-        <Stack sx={{ bgcolor: "white", mr: 3, borderRadius: 5, p: 2 }}>{children}</Stack>
+        <Stack sx={{ bgcolor: "white", mr: 3, borderRadius: 5, p: 2, mb: 2 }}>{children}</Stack>
       </Stack>
     </Stack>
   );

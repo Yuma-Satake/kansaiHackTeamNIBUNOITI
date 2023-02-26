@@ -70,15 +70,18 @@ export const MailList = () => {
           }
         })[0].value;
       });
-
       const subjectList = val.map((mail) => {
         return mail.payload.headers.filter((val) => {
           if (val.name === "Subject") {
+            console.log(val.value);
             return val.value;
+          } else {
+            console.log("ノーパス");
+            return "件名無し";
           }
         })[0].value;
       });
-
+      console.log(val[0].threadId);
       const snippetList = val.map((mail) => {
         return mail.snippet;
       });
@@ -95,11 +98,12 @@ export const MailList = () => {
   }, []);
 
   return (
-    <Stack justifyContent='center' sx={{ m: 1 }}>
+    <Box sx={{ m: 1 }}>
       {numList.lenght !== 0 ? (
         numList.map((num) => {
           return (
             <Button
+              key={num}
               sx={{ color: "secondary.light", mb: 3 }}
               onClick={() => {
                 setSelectThredId(ThreadIdList[num]);
@@ -133,7 +137,7 @@ export const MailList = () => {
       ) : (
         <p>error</p>
       )}
-    </Stack>
+    </Box>
   );
 };
 
